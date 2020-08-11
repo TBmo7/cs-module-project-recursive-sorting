@@ -11,16 +11,17 @@ def binary_search(arr, target, start, end):
     #   binary_search(arr, target, start, mid)
     #else:
     #   binary_search(arr,target,mid,end)
-    if arr is not None:
+    if len(arr) > 0:
         middle = (start + end) // 2
         if arr[middle] == target:
             return middle
         else:
-            if middle > target:
-                binary_search(arr,target,start,middle)
+            if arr[middle] > target:
+                return binary_search(arr,target,start,middle)
             else:
-                binary_search(arr,target,middle,end)
-    return -1 
+                return binary_search(arr,target,middle,end)
+    else:
+        return -1 
 
 
 
@@ -36,6 +37,6 @@ def agnostic_binary_search(arr, target):
     # Your code here
     pass
 
-binary_search(arr1, -8, 0, len(arr1)-1)
+print(binary_search(arr1, -8, 0, len(arr1)-1))
 
 
